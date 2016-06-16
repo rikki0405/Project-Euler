@@ -30,7 +30,7 @@ int brute_calc(const int &n) {
     int primes = 1;
     for (int i = 1; i < n; i++) { if (IsPrime(i)) primes = primes * i; }
     
-    /* Next, set the last position as zero, 20 divisible */
+    /* Next, set the last position to n-divisible */
     while (primes % n != 0) { primes++; }
     
     /* Now, brute calculate until we are satisfied */
