@@ -24,16 +24,16 @@ bool factor_check(const int &value, const int &n) {
     return true;
 }
 
-int brute_calc(const int &n) {
+int calculate(const int &n) {
     
-    /* First, find all the primes up to n */
+    /* First, find and multiply all the primes up to n */
     int primes = 1;
     for (int i = 1; i < n; i++) { if (IsPrime(i)) primes = primes * i; }
     
     /* Next, set the last position to n-divisible */
     while (primes % n != 0) { primes++; }
     
-    /* Now, brute calculate until we are satisfied */
+    /* Now, brute check, at n-increments, until we are satisfied */
     while (!factor_check(primes, n)) { primes = primes + n; }
     
     return primes;
@@ -48,7 +48,7 @@ int main() {
         int n;
         std::cin >> n;
         std::cin.ignore();
-        std::cout << brute_calc(n) << std::endl;
+        std::cout << calculate(n) << std::endl;
     }
     
     return 0;
