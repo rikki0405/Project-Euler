@@ -13,7 +13,7 @@ int main() {
     
     for (int i = 0; i < t; i++) {
         
-        long sum = 0.0;   // long, to work with large numbers
+        long sum = 0.0;
         long n = 0;
         std::cin >> n;
         std::cin.ignore();
