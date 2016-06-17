@@ -5,7 +5,6 @@
 class Fibonacci {
 public:
     
-    /* Constructor */
     void Reset() {
         prev = 1;
         cur = 1;
