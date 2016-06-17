@@ -24,7 +24,6 @@ bool IsDivisible(const unsigned int &n, const unsigned int &orig) {
 }
 
 bool Check(const unsigned int &n, const unsigned int &orig) {
-    // if ((IsPrime(n)) && (IsDivisible(n, orig))) { return true; }
     if (IsDivisible(n, orig)) {
         if (IsPrime(n)) {
             return true;
