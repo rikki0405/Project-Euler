@@ -1,4 +1,5 @@
-/*Project Euler #1: Multiples of 3 and 5  */
+/* Project Euler 001: Multiples of 3 and 5  
+   HackerRank Modified: Test Cases and Custom Input */
 
 #include <iostream>
 #include <iomanip>
