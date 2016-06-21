@@ -1,55 +1,44 @@
-/* Project Euler #3: Largest Prime Factor  
-   NOTE: Needs optimizing to reduce calculation runtime,  but it does correctly function */
-   
+/* Project Euler 003: Largest Prime Factor - HackerRank Modified - Yesh_02 Approach */
 #include <iostream>
 #include <cmath>
 
-bool IsPrime(const unsigned int &n) {
-    if (n < 2) return false;
-    if (n < 4) return true;
-    if (n % 2 == 0) return false;
+long factorize(const long &n) {
     
-    const unsigned int iMax = (int)sqrt(n) + 1;
-    unsigned int i;
-    for (i = 3; i <= iMax; i += 2)
-        if (n % i == 0)
-            return false;
+    /* Step 1: if the given N is even, repeatedly divide by 2 */
+    long factor_n = n;
+    while (factor_n % 2 == 0) { factor_n = factor_n / 2; }
     
-    return true;
-}
-
-bool IsDivisible(const unsigned int &n, const unsigned int &orig) {
-    if (orig % n == 0) { return true; }
-    return false;
-}
-
-bool Check(const unsigned int &n, const unsigned int &orig) {
-    if (IsDivisible(n, orig)) {
-        if (IsPrime(n)) {
-            return true;
+    /* Step 2: if N = 1, return 2 */
+    if (factor_n == 1) { return 2; }
+    
+    /* Step 3: start with i=3, and check if the N is divisible by i. Increment i by 2. Run loop till sqrt of N */
+    long i = 3;
+    while (i != sqrt(factor_n)) {
+        if (n % i == 0) {
+            factor_n = n;
+            break;
+        } else {
+            i = i + 2;
         }
     }
-    return false;
-}
-
-void largest_prime(const unsigned int &n) {
     
-    unsigned int temp = n;
-    while (!Check(temp, n)) { if (temp > n) break; temp--; } // decrementing 1 each loop results in long runtimes in large numbers
-    std::cout << temp << std::endl;                          // will need to optimize this smarter
+    /* Step 3: if N > 2, return N. Else return i */
+    if (factor_n > 2) { return factor_n; }
+    return i;
 }
 
 int main() {
+    
     int n;
     std::cin >> n;
     std::cin.ignore();
     
     for (int i = 0; i < n; i++) {
-        unsigned int x;
-        std::cin >> x;
+        long check;
+        std::cin >> check;
         std::cin.ignore();
-        
-        largest_prime(x);
+        std::cout << factorize(n) << std::endl;
     }
+    
     return 0;
 }
