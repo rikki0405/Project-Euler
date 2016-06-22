@@ -29,7 +29,7 @@ int main() {
     for (int x = 100; x < 999; x++) {
         for (int y = x + 1; y < 999; y++) {
             int prod = x * y;
-            if (prod % 11 == 0)  // multiple of 11 are palindrome numbers, ignore others
+            if (prod % 11 == 0)  // multiples of 11 are palindrome numbers, ignore others
                 if (is_palindrome(prod)) palindromes.push_back(prod);
         }
     }
