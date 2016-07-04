@@ -8,10 +8,11 @@
 class Prime {
 public:
     
-    void set() {
+    Prime() {
         value.push_back(2); // push the first two prime numbers into the vector stack
         value.push_back(3);
         sum_of_primes.push_back(5); // push the first sum of primes into our vector stack
+        calculate(2000001); // Project Euler asks for the sum of all primes under 2,000,000 hence our large pre-calc
     }
     
     void calculate(const unsigned long &n) { // Calculate primes up to n
@@ -76,10 +77,7 @@ int main() {
     std::cin >> t;
     std::cin.ignore();
     
-    /* Customarily pre-calculate our values */
     Prime ePrime;
-    ePrime.set();
-    ePrime.calculate(2000001); // Project Euler asks for the sum of all primes under 2,000,000 hence our large pre-calc
     
     for (int i = 0; i < t; i++) {
         unsigned long n;
